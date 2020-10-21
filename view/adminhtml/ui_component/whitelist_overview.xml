@@ -115,7 +115,7 @@
             </argument>
         </column>
 
-        <column name="store" class="\BitExpert\ForceCustomerLogin\Ui\Component\Listing\Column\StoreName">
+        <column name="store_id" class="\BitExpert\ForceCustomerLogin\Ui\Component\Listing\Column\StoreName">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="indexField" xsi:type="string">store_id</item>
