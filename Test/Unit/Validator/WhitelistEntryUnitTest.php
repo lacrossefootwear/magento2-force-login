@@ -24,11 +24,12 @@ class WhitelistEntryUnitTest extends TestCase
 {
     /**
      * @test
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Label value is too short.
      */
     public function validationFailsDueToLabelTooShort()
     {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('Label value is too short.');
+
         $entity = $this->getWhitelistEntry();
         $entity->expects($this->at(0))
             ->method('getLabel')
@@ -40,11 +41,12 @@ class WhitelistEntryUnitTest extends TestCase
 
     /**
      * @test
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Label value is too long.
      */
     public function validationFailsDueToLabelTooLong()
     {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('Label value is too long.');
+
         $entity = $this->getWhitelistEntry();
         $entity->expects($this->at(0))
             ->method('getLabel')
@@ -56,11 +58,12 @@ class WhitelistEntryUnitTest extends TestCase
 
     /**
      * @test
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Url Rule value is too short.
      */
     public function validationFailsDueToUrlRuleTooShort()
     {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('Url Rule value is too short.');
+
         $entity = $this->getWhitelistEntry();
         $entity->expects($this->at(0))
             ->method('getLabel')
@@ -75,11 +78,12 @@ class WhitelistEntryUnitTest extends TestCase
 
     /**
      * @test
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Url Rule value is too long.
      */
     public function validationFailsDueToUrlRuleTooLong()
     {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('Url Rule value is too long.');
+
         $entity = $this->getWhitelistEntry();
         $entity->expects($this->at(0))
             ->method('getLabel')
@@ -94,11 +98,12 @@ class WhitelistEntryUnitTest extends TestCase
 
     /**
      * @test
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Strategy value is too short.
      */
     public function validationFailsDueToStrategyTooShort()
     {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('Strategy value is too short.');
+
         $entity = $this->getWhitelistEntry();
         $entity->expects($this->at(0))
             ->method('getLabel')
@@ -116,11 +121,12 @@ class WhitelistEntryUnitTest extends TestCase
 
     /**
      * @test
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Strategy value is too long.
      */
     public function validationFailsDueToStrategyTooLong()
     {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('Strategy value is too long.');
+
         $entity = $this->getWhitelistEntry();
         $entity->expects($this->at(0))
             ->method('getLabel')
@@ -138,11 +144,12 @@ class WhitelistEntryUnitTest extends TestCase
 
     /**
      * @test
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Editable is no boolean value.
      */
     public function validationFailsDueToEditableFalseType()
     {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('Editable is no boolean value.');
+
         $entity = $this->getWhitelistEntry();
         $entity->expects($this->at(0))
             ->method('getLabel')

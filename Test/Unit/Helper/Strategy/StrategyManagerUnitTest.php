@@ -137,11 +137,12 @@ class StrategyManagerUnitTest extends TestCase
 
     /**
      * @test
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Could not load rule strategy with identifier "foo"
      */
     public function throwErrorOnMissingMatchinStrategyAndNoDefaultStrategy()
     {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('Could not load rule strategy with identifier "foo"');
+
         $manager = new StrategyManager([]);
         $manager->get('foo');
     }
