@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "80abea5b639ab68e7eb2f7420fb68c72",
+    "content-hash": "b2be7371db47fbb451eac7c99d389b77",
     "packages": [
         {
             "name": "colinmollenhour/credis",
@@ -6141,46 +6141,46 @@
         },
         {
             "name": "captainhook/captainhook",
-            "version": "4.5.8",
+            "version": "5.4.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/CaptainHookPhp/captainhook.git",
-                "reference": "b89ee9e6b445f44173b2a2a142513d597f490244"
+                "url": "https://github.com/captainhookphp/captainhook.git",
+                "reference": "c91b567364f20bc7c3d2db064cd59b4c4c731983"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CaptainHookPhp/captainhook/zipball/b89ee9e6b445f44173b2a2a142513d597f490244",
-                "reference": "b89ee9e6b445f44173b2a2a142513d597f490244",
+                "url": "https://api.github.com/repos/captainhookphp/captainhook/zipball/c91b567364f20bc7c3d2db064cd59b4c4c731983",
+                "reference": "c91b567364f20bc7c3d2db064cd59b4c4c731983",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "ext-simplexml": "*",
                 "ext-spl": "*",
-                "php": "^7.1",
-                "sebastianfeldmann/camino": "^0.9.1",
-                "sebastianfeldmann/cli": "^3.0",
-                "sebastianfeldmann/git": "^2.2",
-                "symfony/console": ">=2.7"
+                "ext-xml": "*",
+                "php": ">=7.2",
+                "sebastianfeldmann/camino": "^0.9.2",
+                "sebastianfeldmann/cli": "^3.3",
+                "sebastianfeldmann/git": "^3.4",
+                "symfony/console": "^2.7 || ^3.0 || ^4.0 || ^5.0",
+                "symfony/process": "^2.7 || ^3.0 || ^4.0 || ^5.0"
             },
             "replace": {
                 "sebastianfeldmann/captainhook": "*"
             },
             "require-dev": {
                 "composer/composer": "~1",
-                "mikey179/vfsstream": "~1",
-                "phpunit/phpunit": "^7.0"
+                "mikey179/vfsstream": "~1"
             },
             "bin": [
-                "captainhook",
-                "captainhook-run"
+                "bin/captainhook"
             ],
             "type": "library",
             "extra": {
-                "captainhook-config": "captainhook.json",
-                "captainhook-git-dir": ".git",
                 "branch-alias": {
-                    "dev-master": "4.3.x-dev"
+                    "dev-main": "6.0.x-dev"
+                },
+                "captainhook": {
+                    "config": "captainhook.json"
                 }
             },
             "autoload": {
@@ -6204,30 +6204,37 @@
                 "commit-msg",
                 "git",
                 "hooks",
+                "post-merge",
                 "pre-commit",
                 "pre-push",
                 "prepare-commit-msg"
             ],
-            "time": "2019-12-02T15:20:27+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/sponsors/sebastianfeldmann",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-12-07T19:38:34+00:00"
         },
         {
             "name": "captainhook/plugin-composer",
-            "version": "4.0.0",
+            "version": "5.2.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/CaptainHookPhp/plugin-composer.git",
-                "reference": "61b6c505e0e6855e7ad653f9efe0ae81304340e0"
+                "url": "https://github.com/captainhookphp/plugin-composer.git",
+                "reference": "7c0c809011c24c1517d3896c5a7318268cea70ee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CaptainHookPhp/plugin-composer/zipball/61b6c505e0e6855e7ad653f9efe0ae81304340e0",
-                "reference": "61b6c505e0e6855e7ad653f9efe0ae81304340e0",
+                "url": "https://api.github.com/repos/captainhookphp/plugin-composer/zipball/7c0c809011c24c1517d3896c5a7318268cea70ee",
+                "reference": "7c0c809011c24c1517d3896c5a7318268cea70ee",
                 "shasum": ""
             },
             "require": {
-                "captainhook/captainhook": "^4.0",
-                "composer-plugin-api": "^1.1",
-                "php": "^7.1"
+                "captainhook/captainhook": "^5.0",
+                "composer-plugin-api": "^1.1|^2.0",
+                "php": ">=7.1"
             },
             "require-dev": {
                 "composer/composer": "*"
@@ -6259,7 +6266,7 @@
                 }
             ],
             "description": "Composer-Plugin handling your git-hooks",
-            "time": "2019-01-10T19:29:52+00:00"
+            "time": "2020-12-07T19:27:49+00:00"
         },
         {
             "name": "doctrine/instantiator",
@@ -7980,30 +7987,28 @@
         },
         {
             "name": "sebastianfeldmann/git",
-            "version": "2.4.0",
+            "version": "3.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianfeldmann/git.git",
-                "reference": "d52744f4e24e2ad4aef49c303b8397af0b1dffed"
+                "reference": "a1855895dbc4056cb3f8d14645487f10a393c029"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianfeldmann/git/zipball/d52744f4e24e2ad4aef49c303b8397af0b1dffed",
-                "reference": "d52744f4e24e2ad4aef49c303b8397af0b1dffed",
+                "url": "https://api.github.com/repos/sebastianfeldmann/git/zipball/a1855895dbc4056cb3f8d14645487f10a393c029",
+                "reference": "a1855895dbc4056cb3f8d14645487f10a393c029",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "php": "^7.1",
-                "sebastianfeldmann/cli": "^3.0.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^7.5"
+                "ext-xml": "*",
+                "php": ">=7.2",
+                "sebastianfeldmann/cli": "^3.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.3.x-dev"
+                    "dev-master": "4.0.x-dev"
                 }
             },
             "autoload": {
@@ -8026,7 +8031,13 @@
             "keywords": [
                 "git"
             ],
-            "time": "2019-09-30T15:04:34+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/sebastianfeldmann",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-12-08T09:38:31+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
