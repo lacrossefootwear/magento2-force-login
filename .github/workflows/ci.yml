@@ -1,0 +1,75 @@
+name: ci
+on:
+  pull_request:
+  push:
+    branches:
+      - "master"
+
+jobs:
+  run:
+    runs-on: ${{ matrix.operating-system }}
+    strategy:
+      matrix:
+        operating-system: ['ubuntu-latest']
+        php-versions: ['7.3', '7.4']
+        magento-versions: ['2.4.0', '2.4.1']
+        coveralls: [false]
+        include:
+          - operating-system: 'ubuntu-latest'
+            php-versions: '7.4'
+            coveralls: true
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Configure PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-versions }}
+          tools: composer:v1
+          coverage: xdebug
+
+      - name: Install Composer dependencies
+        run: composer install
+
+      - name: Install Magento 2.4.0
+        if: matrix.magento-versions == '2.4.0'
+        run: |
+          composer remove magento/framework magento/module-backend magento/module-customer magento/module-store magento/module-ui
+          composer require magento/framework:103.0.0 magento/module-backend:102.0.0 magento/module-customer:103.0.0 magento/module-store:101.1.0 magento/module-ui:101.2.0
+
+      - name: Install Magento 2.4.1
+        if: matrix.magento-versions == '2.4.1'
+        run: |
+          composer remove magento/framework magento/module-backend magento/module-customer magento/module-store magento/module-ui
+          composer require magento/framework:103.0.1 magento/module-backend:102.0.1 magento/module-customer:103.0.1 magento/module-store:101.1.1 magento/module-ui:101.2.1
+
+      - name: Codesniffer
+        run: composer cs-check
+
+      - name: Static code analysis
+        run: composer analyze
+
+      - name: Unittests
+        if: matrix.coveralls == false
+        run: composer test
+
+      - name: Infection for added files
+        if: matrix.coveralls == true
+        env:
+          INFECTION_BADGE_API_KEY: ${{ secrets.INFECTION_BADGE_API_KEY }}
+        run: |
+          git fetch --depth=1 origin $GITHUB_BASE_REF
+          ./vendor/bin/infection -j4 --git-diff-filter=A --git-diff-base=origin/$GITHUB_BASE_REF --logger-github --ignore-msi-with-no-mutations --only-covered
+
+      - name: Unittests with coverage
+        if: matrix.coveralls == true
+        run: composer coverage
+
+      - name: Coveralls report
+        if: matrix.coveralls == true
+        env:
+          COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          composer require php-coveralls/php-coveralls
+          ./vendor/bin/php-coveralls --coverage_clover=clover.xml -v
