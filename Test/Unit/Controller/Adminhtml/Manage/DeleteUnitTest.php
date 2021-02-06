@@ -57,7 +57,7 @@ class DeleteUnitTest extends TestCase
     /**
      * @inheritdoc
      */
-    public function setUp()
+    public function setUp(): void
     {
         $this->whitelist = $this->createMock(WhitelistRepositoryInterface::class);
         $this->redirect = $this->getMockBuilder(Redirect::class)

@@ -251,11 +251,12 @@ class WhitelistRepositoryUnitTest extends TestCase
      *
      * @test
      * @depends testConstructor
-     * @expectedException \RuntimeException
-     * @expectedExceptionMessage Whitelist entry not editable.
      */
     public function testEntryCreationWithExistingEntityFailsDueToNonEditable()
     {
+        $this->expectException(\RuntimeException::class);
+        $this->expectExceptionMessage('Whitelist entry not editable.');
+
         $entityId = 42;
         $label = 'foobar';
         $urlRule = '/foobar';

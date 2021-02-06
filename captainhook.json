@@ -15,15 +15,11 @@
         "enabled": true,
         "actions": [
             {
-                "action": "./vendor/bin/phing sniff",
+                "action": "composer cs-check",
                 "options": []
             },
             {
-                "action": "./vendor/bin/phing analyze",
-                "options": []
-            },
-            {
-                "action": "./vendor/bin/phing security:check",
+                "action": "composer analyze",
                 "options": []
             }
         ]
@@ -36,7 +32,7 @@
                 "options": []
             },
             {
-                "action": "./vendor/bin/phing unit",
+                "action": "composer test",
                 "options": []
             }
         ]

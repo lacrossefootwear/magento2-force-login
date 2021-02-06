@@ -3,3 +3,5 @@
 /dist
 /.docker
 /build
+.phpunit.result.cache
+
