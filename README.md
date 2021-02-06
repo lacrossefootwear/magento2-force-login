@@ -1,6 +1,6 @@
 # Force Login Module for Magento® 2
 
-[![Build Status](https://travis-ci.org/bitExpert/magento2-force-login.svg?branch=master)](https://travis-ci.org/bitExpert/magento2-force-login)
+[![Build Status](https://github.com/bitExpert/magento2-force-login/workflows/ci/badge.svg?branch=master)](https://github.com/bitExpert/magento2-force-login/actions)
 [![Coverage Status](https://coveralls.io/repos/github/bitExpert/magento2-force-login/badge.svg?branch=master)](https://coveralls.io/github/bitExpert/magento2-force-login?branch=master)
 
 The **Force Login** Module for *Magento® 2* allows you to restrict which pages a visitor is
