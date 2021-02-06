@@ -17,6 +17,8 @@ parameters:
         - Ui
         - Validator
         - view
+    magento:
+            checkServiceContracts: false
     ignoreErrors:
         -
             message: '~Parameter #1 \$modelId of method Magento\\Framework\\Model\\AbstractModel::load\(\) expects int, string given~'
@@ -30,12 +32,6 @@ parameters:
         -
             message: '~Parameter #3.*~'
             path: Block/Adminhtml/Manage/Create.php
-        -
-            message: '~Parameter #1.*~'
-            path: Block/Adminhtml/Manage/Create/Form.php
-        -
-            message: '~Parameter #1.*~'
-            path: Model/WhitelistEntry.php
         -
             message: '~Method.*~'
             path: Setup/UpgradeData.php
