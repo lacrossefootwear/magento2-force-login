@@ -1,11 +1,11 @@
 #!/bin/bash
 BASE_URL=${1:-m2.localhost}
-MAGE_VERSION=${2:-2.4.0}
+MAGE_VERSION=${2:-2.4.1}
 
 # load the DB env information
 DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "$DIR" ]]; then DIR="$PWD"; fi
-source "$DIR/../env/db.env"
+source "$DIR/../env/develop.env"
 
 bin/restart
 sleep 1 #Ensure containers are started...
@@ -26,6 +26,10 @@ echo "Forcing reinstall of composer deps to ensure perms & reqs..."
 bin/clinotty composer global require hirak/prestissimo
 bin/clinotty composer update
 
+echo "Installing composer module dependencies..."
+bin/composer install
+
+echo "Setup Magento..."
 bin/clinotty bin/magento setup:install \
   --db-host=$MYSQL_HOST \
   --db-name=$MYSQL_DATABASE \
@@ -46,16 +50,6 @@ bin/clinotty bin/magento setup:install \
   --elasticsearch-host=elasticsearch \
   --use-rewrites=1
 
-echo "Turning on developer mode.."
-bin/clinotty bin/magento deploy:mode:set developer
-bin/clinotty bin/magento indexer:reindex
-
-echo "Forcing deploy of static content to speed up initial requests..."
-bin/clinotty bin/magento setup:static-content:deploy -f 
-
-echo "Re-indexing with Elasticsearch..."
-bin/clinotty bin/magento indexer:reindex
-
 echo "Disable Magento 2FAuth module..."
 bin/clinotty bin/magento module:disable Magento_TwoFactorAuth
 
@@ -75,6 +69,15 @@ bin/clinotty bin/magento setup:upgrade
 
 echo "Installing Sample data..."
 bin/clinotty bin/magento sampledata:deploy
+
+echo "Turning on developer mode.."
+bin/clinotty bin/magento deploy:mode:set developer
+
+echo "Forcing deploy of static content to speed up initial requests..."
+bin/clinotty bin/magento setup:static-content:deploy -f
+
+echo "Re-indexing with Elasticsearch..."
+bin/clinotty bin/magento indexer:reindex
 
 echo "Generating SSL certificate..."
 bin/setup-ssl $BASE_URL

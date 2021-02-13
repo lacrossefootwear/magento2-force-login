@@ -1,0 +1,2 @@
+#!/bin/bash
+bin/cli /var/www/html/BitExpert/ForceCustomerLogin/vendor/bin/captainhook --configuration=/var/www/html/BitExpert/ForceCustomerLogin/captainhook.json "$@"

@@ -1,4 +1,10 @@
 {
+    "config": {
+        "run-mode": "docker",
+        "run-exec": "./bin/githook",
+        "git-directory": "/var/www/html/BitExpert/ForceCustomerLogin/.git/",
+        "run-path": "/var/www/html/BitExpert/ForceCustomerLogin/vendor/bin/captainhook"
+    },
     "commit-msg": {
         "enabled": true,
         "actions": [
