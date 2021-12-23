@@ -1,4 +1,5 @@
 parameters:
+    tmpDir: var/tmp/
     level: 7
     inferPrivatePropertyTypeFromConstructor: true
     checkMissingIterableValueType: false
@@ -19,6 +20,9 @@ parameters:
         - view
     magento:
             checkServiceContracts: false
+            magentoRoot: ./vendor/magento/module-catalog
+    bootstrapFiles:
+        - vendor/bitexpert/phpstan-magento/autoload.php
     ignoreErrors:
         -
             message: '~Parameter #1 \$modelId of method Magento\\Framework\\Model\\AbstractModel::load\(\) expects int, string given~'
@@ -41,3 +45,5 @@ parameters:
         -
             message: '~Parameter.*~'
             path: Setup/UpgradeData.php
+#includes:
+#    - vendor/bitexpert/phpstan-magento/extension.neon

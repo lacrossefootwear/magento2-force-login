@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "50336c30e49b9507fc25431c7b407356",
+    "content-hash": "d0e1548de6dc29a535b19382867db947",
     "packages": [
         {
             "name": "colinmollenhour/credis",
@@ -920,6 +920,7 @@
                 "console",
                 "laminas"
             ],
+            "abandoned": "laminas/laminas-cli",
             "time": "2019-12-31T16:31:45+00:00"
         },
         {
@@ -6083,35 +6084,40 @@
     "packages-dev": [
         {
             "name": "bitexpert/phpstan-magento",
-            "version": "v0.6.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bitExpert/phpstan-magento.git",
-                "reference": "682413acbece6081cde656f69447c7a38ce0011b"
+                "reference": "d4305053d8fb713de87bbd207c6bcb8264c272f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bitExpert/phpstan-magento/zipball/682413acbece6081cde656f69447c7a38ce0011b",
-                "reference": "682413acbece6081cde656f69447c7a38ce0011b",
+                "url": "https://api.github.com/repos/bitExpert/phpstan-magento/zipball/d4305053d8fb713de87bbd207c6bcb8264c272f7",
+                "reference": "d4305053d8fb713de87bbd207c6bcb8264c272f7",
                 "shasum": ""
             },
             "require": {
-                "magento/framework": ">=101.0.0",
-                "nette/neon": "^3.1",
-                "php": "^7.2.0",
-                "phpstan/phpstan": "^0.12.23"
+                "ext-dom": "*",
+                "laminas/laminas-code": "~3.3.0 | ~3.4.1 | ~3.5.1",
+                "php": "^7.2.0 | ^8.0.0",
+                "phpstan/phpstan": "^1.2.0"
+            },
+            "conflict": {
+                "magento/framework": "<102.0.0"
             },
             "require-dev": {
-                "bitexpert/phing-securitychecker": "^0.4.0",
-                "captainhook/captainhook": "^5.3.0",
-                "captainhook/plugin-composer": "^5.2.1",
-                "mikey179/vfsstream": "^1.6.8",
-                "nikic/php-parser": "^4.4.0",
-                "phing/phing": "^2.16.3",
-                "phpstan/extension-installer": "^1.0.4",
-                "phpstan/phpstan-phpunit": "^0.12.10",
-                "phpunit/phpunit": "^8.5.5",
-                "squizlabs/php_codesniffer": "^3.5.5"
+                "captainhook/captainhook": "^5.10.4",
+                "captainhook/plugin-composer": "^5.3.2",
+                "madewithlove/license-checker": "^0.10.0",
+                "magento/framework": ">=102.0.0",
+                "mikey179/vfsstream": "^1.6.10",
+                "nikic/php-parser": "^4.13.1",
+                "phpstan/extension-installer": "^1.1.0",
+                "phpstan/phpstan-phpunit": "^1.0.0",
+                "phpstan/phpstan-strict-rules": "^1.1.0",
+                "phpunit/phpunit": "^9.5.10",
+                "roave/security-advisories": "dev-latest",
+                "squizlabs/php_codesniffer": "^3.6.1"
             },
             "type": "phpstan-extension",
             "extra": {
@@ -6138,7 +6144,7 @@
                 }
             ],
             "description": "PHPStan Magento Extension",
-            "time": "2021-01-22T19:07:54+00:00"
+            "time": "2021-12-23T13:37:32+00:00"
         },
         {
             "name": "captainhook/captainhook",
@@ -6896,16 +6902,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "0.12.71",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "d508fa3b0ecc5fc91ac70c6c7ac2862f968ba2b5"
+                "reference": "cbe085f9fdead5b6d62e4c022ca52dc9427a10ee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/d508fa3b0ecc5fc91ac70c6c7ac2862f968ba2b5",
-                "reference": "d508fa3b0ecc5fc91ac70c6c7ac2862f968ba2b5",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/cbe085f9fdead5b6d62e4c022ca52dc9427a10ee",
+                "reference": "cbe085f9fdead5b6d62e4c022ca52dc9427a10ee",
                 "shasum": ""
             },
             "require": {
@@ -6921,7 +6927,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.12-dev"
+                    "dev-master": "1.2-dev"
                 }
             },
             "autoload": {
@@ -6940,6 +6946,10 @@
                     "type": "github"
                 },
                 {
+                    "url": "https://github.com/phpstan",
+                    "type": "github"
+                },
+                {
                     "url": "https://www.patreon.com/phpstan",
                     "type": "patreon"
                 },
@@ -6948,7 +6958,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-02-01T18:24:00+00:00"
+            "time": "2021-11-18T14:09:01+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -8614,7 +8624,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "bitexpert/phpstan-magento": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
